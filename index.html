@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClinBioSciences Course Catalog</title>
+  <meta name="description" content="Explore professional healthcare certifications from ClinBioSciences. Filter by region, category and switch currency between AED and INR." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="ClinBioSciences logo" class="logo" />
+    </div>
+    <div class="toggles">
+      <div class="lang-toggle">
+        <button id="lang-ar" class="lang-btn">العربية</button>
+        <button id="lang-en" class="lang-btn active">English</button>
+      </div>
+      <div class="currency-toggle">
+        <button id="currency-aed" class="currency-btn active">AED</button>
+        <button id="currency-inr" class="currency-btn">INR</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>What certification do you want?</h1>
+    <p class="subtitle">UAE & India professional healthcare certifications — select your currency and start in seconds.</p>
+    <input type="text" id="search-input" class="search-bar" placeholder="Search \"Medical Coding\", \"Regulatory Affairs\", \"Pharmacovigilance\"..." />
+    <div class="filter-chips" id="filter-chips">
+      <button class="chip active" data-filter="All">All</button>
+      <button class="chip" data-filter="UAE Certifications">UAE Certifications</button>
+      <button class="chip" data-filter="India Certifications">India Certifications</button>
+      <button class="chip" data-filter="Regulatory Affairs">Regulatory Affairs</button>
+      <button class="chip" data-filter="Pharmacovigilance">Pharmacovigilance</button>
+      <button class="chip" data-filter="Medical Coding">Medical Coding</button>
+      <button class="chip" data-filter="Medical Writing">Medical Writing</button>
+    </div>
+  </section>
+
+  <!-- Course Grid -->
+  <main class="course-grid" id="course-grid"></main>
+
+  <script src="app.js"></script>
+</body>
+</html>

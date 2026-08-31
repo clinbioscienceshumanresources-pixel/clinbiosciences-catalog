@@ -1,0 +1,207 @@
+/*
+  ClinBioSciences Course Catalog – Stylesheet
+  Primary palette: #0A5C47 (deep emerald), #064E3B (darker), mint accents, #F8FAF9 (off‑white background)
+*/
+
+:root {
+  --color-primary: #0A5C47;
+  --color-primary-dark: #064E3B;
+  --color-mint: #A8D5BA; /* subtle mint accent */
+  --color-bg: #F8FAF9;
+  --color-card: #FFFFFF;
+  --color-text: #212529;
+  --color-muted: #6c757d;
+  --radius-lg: 1.5rem; /* rounded-2xl equivalent */
+  --radius-sm: 0.75rem;
+  --transition-fast: 0.2s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--color-card);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.logo {
+  height: 48px;
+}
+.toggles {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.lang-btn,
+.currency-btn {
+  background: none;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.lang-btn.active,
+.currency-btn.active {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.lang-btn:hover,
+.currency-btn:hover {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  background-color: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+.search-bar {
+  width: 90%;
+  max-width: 600px;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+}
+.search-bar::placeholder {
+  color: var(--color-muted);
+}
+
+/* Filter chips */
+.filter-chips {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.chip {
+  background-color: var(--color-card);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.chip.active {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.chip:hover {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+}
+
+/* Course Grid */
+.course-grid {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.card {
+  background-color: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.card-header {
+  padding: 1rem;
+}
+.badge {
+  display: inline-block;
+  background-color: var(--color-mint);
+  color: #064e3b;
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+}
+.title {
+  font-weight: 600;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--color-primary-dark);
+  padding: 0 1rem;
+}
+.details {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+  padding: 0 1rem;
+}
+.price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0.5rem 0;
+  padding: 0 1rem;
+}
+.cta {
+  margin-top: auto;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  transition: var(--transition-fast);
+  font-weight: 600;
+}
+.cta:hover {
+  background-color: var(--color-primary-dark);
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .search-bar {
+    width: 95%;
+  }
+}

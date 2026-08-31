@@ -1,0 +1,130 @@
+[
+  {
+    "title": "UAE Regulatory Affairs 15 Days",
+    "duration": "2 weeks",
+    "priceAED": 577,
+    "priceINR": 15000,
+    "categories": ["UAE", "Regulatory Affairs"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "UAE Pharmacovigilance 15 Days",
+    "duration": "2 weeks",
+    "priceAED": 577,
+    "priceINR": 15000,
+    "categories": ["UAE", "Pharmacovigilance"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "UAE Medical Coding 15 Days",
+    "duration": "2 weeks",
+    "priceAED": 577,
+    "priceINR": 15000,
+    "categories": ["UAE", "Medical Coding"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "UAE Medical Writing 15 Days",
+    "duration": "2 weeks",
+    "priceAED": 577,
+    "priceINR": 15000,
+    "categories": ["UAE", "Medical Writing"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "UAE Regulatory Affairs 1 Month",
+    "duration": "4 weeks",
+    "priceAED": 1154,
+    "priceINR": 30000,
+    "categories": ["UAE", "Regulatory Affairs"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "UAE Pharmacovigilance 1 Month",
+    "duration": "4 weeks",
+    "priceAED": 1154,
+    "priceINR": 30000,
+    "categories": ["UAE", "Pharmacovigilance"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "UAE Medical Coding 1 Month",
+    "duration": "4 weeks",
+    "priceAED": 1154,
+    "priceINR": 30000,
+    "categories": ["UAE", "Medical Coding"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "UAE Medical Writing 1 Month",
+    "duration": "4 weeks",
+    "priceAED": 1154,
+    "priceINR": 30000,
+    "categories": ["UAE", "Medical Writing"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "India Regulatory Affairs 1 Week",
+    "duration": "1 week",
+    "priceAED": 385,
+    "priceINR": 10000,
+    "categories": ["India", "Regulatory Affairs"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "India Pharmacovigilance 1 Week",
+    "duration": "1 week",
+    "priceAED": 385,
+    "priceINR": 10000,
+    "categories": ["India", "Pharmacovigilance"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "India Medical Coding 1 Week",
+    "duration": "1 week",
+    "priceAED": 385,
+    "priceINR": 10000,
+    "categories": ["India", "Medical Coding"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "India Medical Writing 1 Week",
+    "duration": "1 week",
+    "priceAED": 385,
+    "priceINR": 10000,
+    "categories": ["India", "Medical Writing"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "India Regulatory Affairs 1 Month",
+    "duration": "4 weeks",
+    "priceAED": 962,
+    "priceINR": 25000,
+    "categories": ["India", "Regulatory Affairs"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "India Pharmacovigilance 1 Month",
+    "duration": "4 weeks",
+    "priceAED": 962,
+    "priceINR": 25000,
+    "categories": ["India", "Pharmacovigilance"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "India Medical Coding 1 Month",
+    "duration": "4 weeks",
+    "priceAED": 962,
+    "priceINR": 25000,
+    "categories": ["India", "Medical Coding"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  },
+  {
+    "title": "India Medical Writing 1 Month",
+    "duration": "4 weeks",
+    "priceAED": 962,
+    "priceINR": 25000,
+    "categories": ["India", "Medical Writing"],
+    "link": "https://rzp.io/rzp/LegalWavepro"
+  }
+]
