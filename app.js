@@ -1,4 +1,4 @@
-// app.js – Handles data loading, search, filters, and currency toggle
+// app.js – Handles data loading, search, filters, currency toggle, and course detail modal
 
 (() => {
   const COURSES_URL = "data/courses.json";
@@ -13,6 +13,38 @@
   let activeCurrency = localStorage.getItem("currency") || "AED";
   let searchTerm = "";
 
+  // ---------- Modal ----------
+  const modal = document.getElementById("course-modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalTitle = document.getElementById("modal-title");
+  const modalClose = document.getElementById("modal-close");
+  const modalBuyBtn = document.getElementById("modal-buy-btn");
+
+  const openModal = (course) => {
+    const imgName = `${course.title}.png`;
+    modalImg.src = `assets/${imgName}`;
+    modalImg.alt = course.title;
+    modalTitle.textContent = course.title;
+    modalBuyBtn.href = course.link;
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+    modalImg.src = "";
+  };
+
+  modalClose.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // ---------- Currency ----------
   const setActiveCurrency = (currency) => {
     activeCurrency = currency;
     localStorage.setItem("currency", currency);
@@ -21,24 +53,22 @@
     renderCourses();
   };
 
-  // Currency toggle listeners
   currencyAEDBtn.addEventListener("click", () => setActiveCurrency("AED"));
   currencyINRBtn.addEventListener("click", () => setActiveCurrency("INR"));
 
-  // Filter chip listener (event delegation)
+  // ---------- Filter chips ----------
   filterContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("chip")) {
       const filter = e.target.dataset.filter;
       activeFilter = filter;
-      // Update active class
-      document.querySelectorAll('.chip').forEach((chip) => {
-        chip.classList.toggle('active', chip.dataset.filter === filter);
+      document.querySelectorAll(".chip").forEach((chip) => {
+        chip.classList.toggle("active", chip.dataset.filter === filter);
       });
       renderCourses();
     }
   });
 
-  // Debounce helper
+  // ---------- Search ----------
   const debounce = (fn, delay) => {
     let timer;
     return (...args) => {
@@ -54,6 +84,7 @@
 
   searchInput.addEventListener("input", handleSearch);
 
+  // ---------- Data ----------
   const loadCourses = async () => {
     try {
       const resp = await fetch(COURSES_URL);
@@ -64,14 +95,12 @@
     }
   };
 
+  // ---------- Filtering ----------
   const matchesFilter = (course) => {
     if (activeFilter === "All") return true;
-    // Filter chips correspond to categories or region groups
-    // Example: "UAE Certifications" matches any course with "UAE" in categories
-    // "Regulatory Affairs" matches specific category name
     const filter = activeFilter;
     if (filter.endsWith("Certifications")) {
-      const region = filter.split(" ")[0]; // "UAE" or "India"
+      const region = filter.split(" ")[0];
       return course.categories.includes(region);
     }
     return course.categories.includes(filter);
@@ -83,6 +112,7 @@
     return searchable.includes(searchTerm);
   };
 
+  // ---------- Render ----------
   const renderCourses = () => {
     gridEl.innerHTML = "";
     const visible = courses.filter((c) => matchesFilter(c) && matchesSearch(c));
@@ -93,32 +123,35 @@
     visible.forEach((course) => {
       const card = document.createElement("div");
       card.className = "card";
-      // Header badges
+
       const header = document.createElement("div");
       header.className = "card-header";
       const categoryBadge = document.createElement("span");
       categoryBadge.className = "badge";
-      categoryBadge.textContent = course.categories[1] || course.categories[0]; // specific category
+      categoryBadge.textContent = course.categories[1] || course.categories[0];
       const durationBadge = document.createElement("span");
       durationBadge.className = "badge";
       durationBadge.textContent = course.duration;
+
       const title = document.createElement("h3");
       title.className = "title";
       title.textContent = course.title;
+
       const details = document.createElement("p");
       details.className = "details";
       details.textContent = `Duration: ${course.duration}`;
+
       const price = document.createElement("p");
       price.className = "price";
       const priceVal = activeCurrency === "AED" ? course.priceAED : course.priceINR;
-      const priceSymbol = activeCurrency === "AED" ? "AED " : "₹ ";
+      const priceSymbol = activeCurrency === "AED" ? "AED " : "Rs. ";
       price.textContent = `${priceSymbol}${priceVal.toLocaleString()}`;
+
+      // "Course Details" button — replaces "Buy now"
       const btn = document.createElement("button");
       btn.className = "cta";
-      btn.textContent = "Buy now";
-      btn.addEventListener("click", () => {
-        window.open(course.link, "_blank");
-      });
+      btn.textContent = "Course Details";
+      btn.addEventListener("click", () => openModal(course));
 
       header.appendChild(categoryBadge);
       header.appendChild(durationBadge);
@@ -131,9 +164,7 @@
     });
   };
 
-  // Initialize UI state
+  // Initialize
   setActiveCurrency(activeCurrency);
-
-  // Load data
   loadCourses();
 })();
